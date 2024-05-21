@@ -1,0 +1,51 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Créer une nouvelle unité
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    
+
+    <!-- Section pour ajouter-modifier-unite -->
+    <section id="ajouter-modifier-unite" class="bg-light">
+        <div class="container">
+            <h2>Créer une nouvelle unité</h2>
+            <p>Dans cette section, vous pouvez ajouter de nouvelles unités à votre système.</p>
+            <p>Utilisez le formulaire ci-dessous pour ajouter une unité :</p>
+
+            <!-- Utilisation du formulaire Symfony -->
+            {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.nomModule) }}
+                    <div>{{ form_widget(form.nomModule, {'attr': {'class': 'form-control', 'placeholder': 'Entrez le nom du module'}}) }}</div>
+                    <div>{{ form_errors(form.nomModule) }}</div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.typeModule) }}
+                    <div>{{ form_widget(form.typeModule, {'attr': {'class': 'form-control', 'placeholder': 'Entrez le type du module'}}) }}</div>
+                    <div>{{ form_errors(form.typeModule) }}</div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.description) }}
+                    <div>{{ form_widget(form.description, {'attr': {'class': 'form-control', 'rows': 3, 'placeholder': 'Entrez une description du module'}}) }}</div>
+                    <div>{{ form_errors(form.description) }}</div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.etatModule) }}
+                    <div>{{ form_widget(form.etatModule, {'attr': {'class': 'form-control'}}) }}</div>
+                    <div>{{ form_errors(form.etatModule) }}</div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.donneesMesurees) }}
+                    <div>{{ form_widget(form.donneesMesurees, {'attr': {'class': 'form-control', 'placeholder': 'Entrez les données mesurées'}}) }}</div>
+                    <div>{{ form_errors(form.donneesMesurees) }}</div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-rounded">Enregistrer</button>
+            {{ form_end(form) }}
+        </div>
+    </section>
+</div>
+{% endblock %}

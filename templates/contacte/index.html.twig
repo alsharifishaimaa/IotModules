@@ -1,0 +1,65 @@
+{# templates/contacte/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block body %}
+<!-- Section Contactez-nous -->
+<section id="contactez-nous">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Contactez-nous !</h2>
+                {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_label(form.email) }}
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                            </div>
+                            {{ form_widget(form.email) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.phone) }}
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                            </div>
+                            {{ form_widget(form.phone) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.subject) }}
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
+                            </div>
+                            {{ form_widget(form.subject) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.message) }}
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="bi bi-chat-left-text"></i></span>
+                            </div>
+                            {{ form_widget(form.message) }}
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                {{ form_end(form) }}
+            </div>
+            <div class="col-lg-6">
+                <h2>Informations de contact</h2>
+                <ul class="contact-info">
+                    <li><i class="bi bi-envelope-fill"></i> iot@gmail.com</li>
+                    <li><i class="bi bi-telephone-fill"></i> +33 6 12 10 99 74</li>
+                    <li><i class="bi bi-geo-alt-fill"></i> 16 Rue Eugène Duthoit , Tourcoing 59200</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

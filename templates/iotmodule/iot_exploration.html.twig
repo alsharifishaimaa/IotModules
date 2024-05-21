@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exploration_Iot_Module{% endblock %}
+
+{% block body %}
+
+    <!-- Section des applications concrètes d'IoT -->
+    <section id="applications-IoT">
+        <div class="container">
+            <h2>Applications concrètes d'IoT</h2>
+            <p class="text-muted">Les applications pratiques de l'IoT offrent des solutions innovantes pour une variété de domaines, allant de la surveillance à distance à l'optimisation des processus.</p>
+            <div class="row justify-content-center">
+                <div class="triangle1-container">
+                    <div class="col-md-4">
+                        <img src="{{ asset('image/iotFonctionne.jpg') }}" class="img-fluid special-img1" alt="Module IOT en fonctionnement">
+                    </div>
+                    <div class="text">
+                        <h3>Surveillance en temps réel</h3>
+                        <p class="text-center"><span class="centered-text">Le module IoT fonctionne correctement avec des lumières vertes allumées, permettant une surveillance en temps réel des processus industriels.</span></p>
+                    </div>
+                </div>
+                <div class="triangle2-container">
+                    <div class="col-md-4" >
+                        <img src="{{ asset('image/iotEnPanne.jpg') }}" class="img-fluid special-img2" alt="Module IOT en cas de panne de courant">
+                    </div>
+                    <div class="text">
+                        <h3>Gestion de crise</h3>
+                        <p class="text-center"><span class="centered-text">Le module IoT signale une panne de courant avec des lumières rouges éteintes, déclenchant une gestion de crise immédiate pour rétablir le fonctionnement normal.</span></p>
+                    </div>
+                </div>
+                <div class="triangle3-container">
+                    <div class="col-md-4">
+                        <img src="{{ asset('image/iotSurveillance.jpg') }}" class="img-fluid special-img3" alt="Application mobile de surveillance IOT">
+                    </div>
+                    <div class="text">
+                        <h3>Surveillance mobile</h3>
+                        <p class="text-center"><span class="centered-text">L'application mobile permet une surveillance à distance des dispositifs IoT, fournissant des alertes instantanées pour une intervention rapide en cas d'anomalie.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section des descriptions -->
+    <section id="descriptions">
+        <div class="container">
+            <h2>Descriptions</h2>
+            <p>Le système de suivi des unités IoT offre des fonctionnalités avancées pour une gestion efficace et proactive des dispositifs connectés à Internet. Voici quelques-unes des fonctionnalités clés:</p>
+            <ul>
+                <li><strong>Surveillance en temps réel:</strong> Permet de surveiller l'état des unités IoT en temps réel pour une réactivité immédiate en cas de problème.</li>
+                <li><strong>Analyse des données:</strong> Fournit une analyse approfondie des données collectées par les dispositifs IoT, facilitant ainsi la prise de décision informée pour optimiser les performances.</li>
+                <li><strong>Notifications d'urgence:</strong> Envoie des notifications instantanées en cas de dysfonctionnement ou de panne des dispositifs, permettant ainsi une intervention rapide et efficace.</li>
+            </ul>
+        </div>
+    </section>
+{% endblock %}
