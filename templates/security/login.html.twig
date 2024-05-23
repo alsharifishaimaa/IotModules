@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <!-- Section pour la connexion -->
+    <section id="connexionSection">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Connexion</h2>
+                <div class="col-md-6 logo-container">
+                    <img src="{{ asset('image/logo_connexion.jpg') }}" alt="Logo de connexion" class="logoConnexion">
+                </div>                    
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <label for="inputEmail">Adresse email :</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Entrer votre email" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Mot de passe :</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Entrer votre mot de passe" required>
+                    </div>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <button class="btn btn-primary btn-block" type="submit">Se connecter</button>
+                </form>
+                <p class="mt-4 text-center">Nouveau ici ? <a href="{{ path('app_register') }}">Inscrivez-vous maintenant</a></p>
+                <p class="mt-2 text-center"><a href="{{path('app_forgot_password_request')}}">Mot de passe oublié ?</a></p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+

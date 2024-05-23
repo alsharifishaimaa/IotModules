@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Développement d’un site web de monitoring pour modules IoT. Ce site offre une surveillance en temps réel, une gestion efficace des données et des solutions personnalisées pour chaque client.">
+        <title>{% block title %}IoT Monitoring - Votre Solution de Surveillance{% endblock %}</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- Bootstrap Icons CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+
+        <!-- Custom CSS -->
+        {% block stylesheets %}
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet"/>
+        {% endblock %}
+
+        <!-- Custom javascripts -->
+        {% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+			<script src="{{ asset('javascript/script.js') }}"></script>
+			<script src="{{ asset('javascript/setting.json') }}"></script>
+		{% endblock %}
+
+    </head>
+
+    <!-- Header -->
+            <header>
+                {% block header %}
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="col-md-6">
+                        <img src="{{ asset('image/logo.jpg') }}" alt="Company Logo" class="logo">
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link {{app.current_route == 'home' ? 'active' : ''}}" href="{{path('home')}}">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.current_route starts with 'unit.' ? 'active' : ''}}" href= "{{path('admin.unit.index')}}">Modules IOT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ app.current_route starts with 'unit.' ? 'active' : ''}}" href="{{path('app_login')}}">Connexion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                {% endblock %}
+            </header>
+            <div class="container my-4">
+                {% include "partials/flash.html.twig" %}
+                {% block body %}{% endblock %}
+            </div>
+
+    <!-- Footer -->
+            <footer class="footer">
+                {% block footer %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{ asset('image/logo.jpg') }}" alt="Logo" class="logo-footer">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>À propos de notre projet</h5>
+                            <p>Développement d’un site web de monitoring pour modules IoT.</p>
+                            <h5>Notre Expertise</h5>
+                            <p>Spécialistes en test et mesure de dispositifs IoT.</p>
+                            <p>Plus de 5000 capteurs et systèmes de mesure implémentés.</p>
+                            <h5>Notre Approche</h5>
+                            <p>Partenaires de l’industrie avec plus de 1000 clients satisfaits.</p>
+                            <h5>Notre Philosophie</h5>
+                            <p>Personnalisation pour chaque besoin unique.</p>
+                            <p>Solutions sur mesure adaptées à vos exigences spécifiques.</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h5>Information</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="{{path('app_contacte')}}">Contact</a></li>
+                                <li><a href="{{path('app_mentions_legales')}}">Mentions légales</a></li>
+                                <li><a href="../image/Politique-de-Confidentialite.pdf" target="_blank">Politique de confidentialité</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <h5>Suivez-nous</h5>
+                            <ul class="list-unstyled social-icons">
+                                <li><a href="https://www.facebook.com"><i class="bi bi-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com"><i class="bi bi-instagram"></i></a></li>
+                                <li><a href="https://twitter.com"><i class="bi bi-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com"><i class="bi bi-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-1">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span class="text-muted">© 2024 - IoT Unit Tracking System by Al Sharifi Shaimaa</span>
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
+            </footer>
+            <!-- End Footer -->
+    </body>
+</html>

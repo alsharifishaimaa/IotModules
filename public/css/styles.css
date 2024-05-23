@@ -1,0 +1,792 @@
+/* Paramètres généraux */
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    
+    margin: 0 auto;
+}
+
+/* Styles pour l'en-tête */
+header {
+    background-color: #404040;
+    color: #ffffff;
+    padding: 20px 0;
+    position: relative;
+    margin-top: 0;
+}
+
+/* Ajout d'un effet de vague à l'arrière-plan du header */
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../image/iot-header.jpg'); 
+    background-size: cover;
+    opacity: 0.3; 
+    z-index: 1;
+    pointer-events: none;
+    animation: waveAnimation 10s infinite linear alternate; 
+}
+
+.logo {
+    width: 250px; 
+    height: auto; 
+    max-width: 100%;  
+    cursor: pointer;
+}
+
+.navbar-nav .nav-link {
+    font-size: 22px; 
+    margin: 0 5px; 
+    letter-spacing: 0.5px; 
+    transition: font-size 0.3s, text-shadow 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    font-size: 24px; 
+    text-shadow: 1px 1px 2px rgba(26, 25, 25, 0.5); 
+}
+#list-unstyle a{
+    display: inline;
+    white-space: nowrap;
+}
+
+/* Animation de la vague */
+@keyframes waveAnimation {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+header .navbar-brand {
+    color: #ffffff;
+}
+
+header .nav-link {
+    color: #ffffff;
+}
+
+/* Styles d'accueil */
+#welcome-text {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    text-align: center; 
+    font-size: 2.5em;
+    font-weight: bold;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translatex(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anime {
+    animation: fadeIn 5s ease-out;
+}
+.hidden {
+    opacity: 1;
+}
+
+
+/* Définition de l'animation des vagues */
+@keyframes wave {
+    0% { transform: translateY(0); text-shadow: 0 0 20px rgba(14, 14, 232, 0.454); }
+    25% { transform: translateY(-5px); text-shadow: 0 0 25px rgba(0, 0, 255, 0.9); }
+    50% { transform: translateY(0); text-shadow: 0 0 20px rgba(0, 0, 255, 0.8); }
+    75% { transform: translateY(5px); text-shadow: 0 0 25px rgba(0, 0, 255, 0.9); }
+    100% { transform: translateY(0); text-shadow: 0 0 20px rgba(0, 0, 255, 0.8); }
+}
+
+/* Application de l'animation des vagues au texte */
+.wave-animation {
+    animation: wave 5s ease-in-out infinite alternate; 
+    color: #007bff; 
+}
+
+/* Changement de couleur lors du survol */
+.wave-animation:hover {
+    color: #7e06edb6; 
+}
+
+#accueil p {
+    text-align: center; 
+    font-size: 2.1em; 
+    margin-bottom: 20px; 
+}
+
+#accueil img {
+    border-radius: 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out; 
+    margin-bottom: 50px;
+}
+
+#accueil img:hover {
+    transform: scale(1.05); 
+}
+
+#welcome-text, #introduction {
+    margin-top: 50px; 
+}
+
+.thicker-text {
+    font-weight: bold;
+    font-size: 2em; 
+    white-space: nowrap;
+    margin-bottom: 25px;
+}
+.text-container {
+    width: 80%; 
+    margin: 0 auto; 
+    text-align: justify; 
+}
+
+.text-container p {
+    font-family: Arial, sans-serif; 
+    font-size: 18px; 
+    color: #333; 
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.image-container img {
+    width: 80%; 
+    height: auto; 
+}
+
+.blue-shadow {
+    color: rgba(68, 68, 245, 0.788); 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    font-weight: bold; 
+}
+
+.discover-btn {
+    float: right; 
+    font-size: 24px; 
+    padding: 30px 40px; 
+    border-radius: 20px; 
+    transition: all 0.3s ease; 
+    margin-top: 20px;  
+}
+
+.discover-btn:hover {
+    background-color: #193a5e; 
+    color: rgb(103, 89, 89); 
+    font-size: 28px; 
+    border-radius: 30px; 
+    box-shadow: 0 0 10px rgba(49, 45, 45, 0.5); 
+}
+
+.introduction-heading {
+    font-size: 36px; 
+    font-weight: bold; 
+    text-align: center; 
+    margin-top: 50px; 
+    margin-bottom: 50px; 
+}
+
+#introduction img {
+    display: block; 
+    margin: 50px auto; 
+    width: 80%; 
+    max-width: 100%; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s ease-in-out; 
+    border-radius: 20px; 
+}
+
+#introduction img:hover {
+    transform: scale(1.1); 
+}
+
+#iot {
+    text-align: center; 
+    margin-top: 50px; 
+    margin-bottom: 50px; 
+    padding: 20px; 
+    background-color: #efe8e8e4; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: justify;
+}
+
+#iot p {
+    font-size: 24px; 
+    line-height: 1.5; 
+}
+
+.integration h2{
+    font-size: 3em;
+}
+
+.integration #int{
+    text-align: center;
+    font-size: 3.5em;
+    color: rgba(68, 68, 245, 0.788); 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    font-weight: bold; 
+}
+
+.reponse {
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.reponse li {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* Liste numérotée */
+ol {
+    counter-reset: list;
+}
+
+ol li {
+    display: block;
+}
+
+ol li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+ol li:before {
+    content: counter(list) ". ";
+    counter-increment: list;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Styles pour la description */
+.description {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.description h3 {
+    color: #007bff;
+}
+
+.description p {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: justify;
+}
+
+/* Styles pour ajouter-modifier-unite */
+#ajouter-modifier-unite {
+    padding: 100px;
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin-top: 150px; 
+    margin-bottom: 150px;
+    width: 80%; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+.btn-primary, .btn-secondary {
+    background-color: #007bff; 
+    color: #ffffff;
+    font-size: 20px; 
+    padding: 15px 30px; 
+    border-radius: 20px; 
+    transition: all 0.3s ease; 
+    margin-top: 10px;  
+}
+
+.btn-primary {
+    margin-right: 10px; 
+    float: right;   
+}
+
+.btn-secondary {
+    margin-left: 10px; 
+    float: left;  
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    background-color: #193a5e; 
+    color: rgb(103, 89, 89); 
+    font-size: 28px; 
+    border-radius: 30px; 
+    box-shadow: 0 0 10px rgba(49, 45, 45, 0.5); 
+}
+#unitDataSection {
+    padding: 150px;
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin-top: 100px; 
+    margin-bottom: 100px;
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 100%; 
+    box-sizing: border-box; 
+    overflow-x: auto;
+}
+        
+
+
+#unitDataSection h1{
+    font-weight: bold;
+    font-size: 3.5em;
+}
+.table {
+    width: 100%;
+    max-width: 100%; 
+    border-collapse: collapse;
+    border: 1px solid #007bff; 
+    margin-bottom: 30px;
+}
+
+
+
+
+th, td {
+    border: 1px solid #a4b5c6;
+    padding: 20px; 
+    text-align: center; 
+    white-space: nowrap;
+}
+
+/* Styles pour le connexion */
+#connexionSection {
+    text-align: center;
+    padding: 40px;
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin-top: 100px; 
+    margin-bottom: 100px;
+}
+
+.logoConnexion {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-left: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    filter: grayscale(50%) brightness(80%) contrast(120%) hue-rotate(45deg);
+}
+
+#connexionSection h2 {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#connexionSection form {
+    margin-top: 30px;
+}
+
+#connexionSection .btn-primary {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#connexionSection p a {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #5f9de0;
+    transition: all 0.3s ease;
+}
+
+#connexionSection p a:hover {
+    color: #0056b3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Styles pour l'inscription */
+#inscription{
+    text-align: center;
+    padding: 40px;
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin-top: 100px; 
+    margin-bottom: 100px;
+}
+
+#inscription h2 {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#inscription label:not(.form-check-label):not(.form-check-label:last-child) {
+    display: block;
+    text-align: left;
+    margin-right: 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#inscription label:not(.form-check-label):not(.form-check-label:last-child):hover {
+    color: #0056b3;
+    transition: color 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#inscription .form-check-label:last-child {
+    text-align: left;
+    margin-right: 0;
+    font-size: inherit;
+    text-shadow: none;
+}
+
+/* Styles forgot Password */
+#forgotPasswordSection{
+    text-align: center;
+    padding: 50px;
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin-top: 100px; 
+    margin-bottom: 100px;
+}
+
+#forgotPasswordSection h2{
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+/* Styles pour des applications concrètes d'IoT */
+#applications-IoT h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    background: linear-gradient(to right, #074489, #9edff9cd); 
+    border-radius: 30px;
+    padding: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+#applications-IoT .col-md-4 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+#applications-IoT p {
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+   
+}
+#applications-IoT h3{
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+.img-fluid .special-img1 {
+    max-width: 150%; 
+    height: auto; 
+    display: block; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.centered-text {
+    display: inline-block;
+    width: 50%; 
+}
+.triangle1-container img,
+.triangle2-container img,
+.triangle3-container img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.triangle1-container .text,
+.triangle2-container .text,
+.triangle3-container .text{
+   margin-left: 30%;
+}
+#descriptions h2{
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+#descriptions p {
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+#descriptions ul{
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+    .triangle1-container img,
+    .triangle2-container img,
+    .triangle3-container img {
+        height: auto; 
+    }
+}
+
+/* Styles Mentions légales IOT */
+#mentions-legales{
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    margin-top: 50px; 
+    margin-bottom: 50px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+#mentions-legales{
+    text-align: justify;
+}
+
+/* Styles pour le formulaire */
+form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer; 
+}
+/* Styles pour les liens dans la barre de navigation */
+.nav-link {
+    font-size: 18px; 
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s; 
+}
+
+/* Styles au survol des liens */
+.nav-link:hover {
+    color: #0056b3; 
+    transform: scale(1.1); 
+    box-shadow: 0 0 10px rgba(0, 86, 179, 0.5); 
+}
+
+/* styles_contact.css */
+/* Personnalisation des styles pour la section "Contactez-nous" */
+#contactez-nous {
+    margin-top: 50px; 
+    margin-bottom: 50px; 
+    padding: 50px; 
+    background-color: #fff; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 10px; 
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.1); 
+    width: 100%; 
+    margin: 50px auto; 
+}
+#contactez-nous h2 {
+    font-size: 2em; 
+    color: #337ab7; 
+    text-transform: uppercase; 
+    text-shadow: 2px 2px 2px rgb(40, 38, 38);
+    display: inline-block; 
+    font-weight: bold;
+    white-space: nowrap; 
+}
+
+#contactez-nous h2::after {
+    content: ""; 
+    display: block; 
+    width: 100%; 
+    border-bottom: 2px solid #3379b773; 
+    margin-top: 10px; 
+}
+
+#contactez-nous .form-group label {
+    color: #666;
+    font-weight: bold;
+}
+
+#contactez-nous .form-control {
+    border-radius: 0;
+    border-color: #ced4da;
+}
+
+#contactez-nous .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 0;
+}
+
+#contactez-nous .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+#contactez-nous .contact-info {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 30px;
+}
+
+#contactez-nous .contact-info li {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+#contactez-nous .contact-info li i {
+    margin-right: 10px;
+    color: #007bff; 
+    font-size: 32px;
+}
+
+/* Styles pour le pied de page */
+.logo-footer {
+    width: 200px; 
+    height: auto; 
+    margin-bottom: 20px; 
+    border-radius: 50%;
+    overflow: hidden; 
+    background-color: transparent;
+}
+
+.footer {
+    background: linear-gradient(to right, #074489, #9edff9cd); 
+    padding-top: 20px; 
+    padding-bottom: 20px; 
+    width: 100%;
+    height: auto;
+}
+.footer .container .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    
+}
+
+.footer .container .col-md-3,
+.footer .container .col-md-6 {
+  
+    
+}
+
+.footer h5 {
+    color: #343a40; 
+    font-size: 18px; 
+    font-weight: bold; 
+}
+
+.footer ul {
+    padding-left: 0; 
+    list-style: none; 
+}
+
+.footer ul li {
+    margin-bottom: 10px; 
+}
+
+.footer ul li a {
+    color: #6c757d; 
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    color: #007bff; 
+}
+
+.text-muted {
+    color: #0b1620;  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 16px; 
+    display: block; 
+    margin-top: 40px; 
+}
+.social-icons {
+    text-align: center; 
+    margin-top: 30px; 
+}
+
+.social-icons li {
+    display: inline-block; 
+    margin-right: 15px; 
+}
+
+.social-icons li:last-child {
+    margin-right: 0; 
+}
+
+.social-icons li a {
+    color: #004080; 
+    font-size: 32px; 
+}
+
+.social-icons li a:hover {
+    color: #0056b3; 
+}
+
+.footer ul.list-unstyled li a {
+    color: #0a2b52; 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+}
+
+.footer ul.list-unstyled li a:hover {
+    color: #3577bccf; 
+}
