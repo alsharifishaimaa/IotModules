@@ -10,12 +10,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mailer\MailerInterface;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 91f9245964b27b13bebb8c597a8b31c82c6357ea
 class ContacteController extends AbstractController
 {
     #[Route('/contacte', name: 'app_contacte')]
     public function index(Request $request, MailerInterface $mailer): Response
     {
+<<<<<<< HEAD
         $form = $this->createForm(ContacteType::class);
 
         $form->handleRequest($request);
@@ -24,16 +28,45 @@ class ContacteController extends AbstractController
             //dd($data);
             $address = $data['email'];
             $content = $data['message'];
+=======
+        // Créer le formulaire de contact
+        $form = $this->createForm(ContacteType::class);
+
+        // Gérer la soumission du formulaire
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Récupérer les données du formulaire
+            $data = $form->getData();
+            
+            // Récupérer l'adresse e-mail et le contenu du message
+            $address = $data['email'];
+            $content = $data['message'];
+
+            // Créer un objet Email avec les informations du message
+>>>>>>> 91f9245964b27b13bebb8c597a8b31c82c6357ea
             $email = (new Email())
                 ->from($address)
                 ->to('admin@admin.com')
                 ->subject('Demande de contact')
                 ->text($content);
+<<<<<<< HEAD
             $mailer->send($email);
     
             $this->addFlash('success', 'Votre message a été envoyé avec succès.');
             return $this->redirectToRoute('app_contacte');
         }
+=======
+
+            // Envoyer l'e-mail
+            $mailer->send($email);
+            // Ajouter un message flash pour confirmer l'envoi du message
+            $this->addFlash('success', 'Votre message a été envoyé avec succès.');
+
+            // Rediriger vers la page de contact
+            return $this->redirectToRoute('app_contacte');
+        }
+        // Rendre la vue du formulaire de contact
+>>>>>>> 91f9245964b27b13bebb8c597a8b31c82c6357ea
         return $this->render('contacte/index.html.twig', [
             'controller_name' => 'ContacteController',
             'form' => $form->createView(),
