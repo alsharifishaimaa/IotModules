@@ -48,7 +48,10 @@ class Unit
     private ?\DateTimeImmutable $updatededAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'units')]
+    #[ORM\JoinColumn(nullable: true)]
     private ?User $user = null;
+
+    
 
     public function getId(): ?int
     {
