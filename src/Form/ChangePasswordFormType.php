@@ -26,30 +26,26 @@ class ChangePasswordFormType extends AbstractType
                 ],
                 'first_options' => [
                     'constraints' => [
-                        // Contrainte pour s'assurer que le champ n'est pas vide
                         new NotBlank([
-                            'message' => 'Veuillez entrer un mot de passe',
+                            'message' => 'Please enter a password',
                         ]),
-                        // Contrainte pour la longueur minimale du mot de passe
                         new Length([
                             'min' => 12,
-                            'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
-                            // Longueur maximale autorisée par Symfony pour des raisons de sécurité
+                            'minMessage' => 'Your password should be at least {{ limit }} characters',
+                            // max length allowed by Symfony for security reasons
                             'max' => 4096,
                         ]),
-                        // Contrainte pour la force du mot de passe
                         new PasswordStrength(),
-                        // Contrainte pour s'assurer que le mot de passe n'a pas été compromis
                         new NotCompromisedPassword(),
                     ],
-                    'label' => 'Nouveau mot de passe',
+                    'label' => 'New password',
                 ],
                 'second_options' => [
-                    'label' => 'Répéter le mot de passe',
+                    'label' => 'Repeat Password',
                 ],
-                'invalid_message' => 'Les champs de mot de passe doivent correspondre.',
-                // Au lieu d'être directement défini sur l'objet,
-                // ceci est lu et encodé dans le contrôleur
+                'invalid_message' => 'The password fields must match.',
+                // Instead of being set onto the object directly,
+                // this is read and encoded in the controller
                 'mapped' => false,
             ])
         ;

@@ -25,15 +25,12 @@ class RegistrationController extends AbstractController
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
-        // Créer une nouvelle instance de l'entité User
         $user = new User();
-
-        // Créer le formulaire d'inscription et le lier à l'entité User
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // Crypter le mot de passe en utilisant le service UserPasswordHasherInterface
+            // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -41,11 +38,10 @@ class RegistrationController extends AbstractController
                 )
             );
 
-            // Persiste l'entité User dans la base de données
             $entityManager->persist($user);
             $entityManager->flush();
 
-            // Générer un URL signé et l'envoyer par e-mail à l'utilisateur pour vérification
+            // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('no-reply@blogbooks.com', 'No Reply'))
@@ -63,27 +59,24 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form,
         ]);
     }
+
     #[Route('/verify/email', name: 'app_verify_email')]
     public function verifyUserEmail(Request $request, TranslatorInterface $translator): Response
     {
-        // Restreindre l'accès à cette route uniquement aux utilisateurs authentifiés
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
-        // Valider le lien de confirmation d'e-mail, définir User::isVerified=true et persister
+        // validate email confirmation link, sets User::isVerified=true and persists
         try {
             $this->emailVerifier->handleEmailConfirmation($request, $this->getUser());
         } catch (VerifyEmailExceptionInterface $exception) {
-            // En cas d'erreur, afficher un message flash approprié
             $this->addFlash('verify_email_error', $translator->trans($exception->getReason(), [], 'VerifyEmailBundle'));
 
-            // Rediriger l'utilisateur vers la page d'inscription en cas d'erreur
             return $this->redirectToRoute('app_register');
         }
 
-        // Afficher un message flash pour confirmer la vérification de l'adresse e-mail
-        $this->addFlash('success', 'Votre adresse e-mail a été vérifiée.');
+        // @TODO Change the redirect on success and handle or remove the flash message in your templates
+        $this->addFlash('success', 'Your email address has been verified.');
 
-        // Rediriger l'utilisateur vers la page d'inscription
         return $this->redirectToRoute('app_register');
     }
 }
